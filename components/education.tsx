@@ -26,7 +26,7 @@ export function Education() {
   return (
     <section id="education" className="py-24 px-6 bg-muted/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
           Education
         </h2>
 

@@ -4,15 +4,11 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 px-6 bg-muted/30">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-8">
-          Contact
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          Let&apos;s Connect
         </h2>
-
-        <p className="text-2xl md:text-3xl font-medium text-foreground mb-6 text-balance">
-          Let&apos;s work together
-        </p>
         
-        <p className="text-muted-foreground mb-8 max-w-md mx-auto leading-relaxed">
+        <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto leading-relaxed">
           I&apos;m always open to discussing new opportunities, collaborations, 
           or just having a chat about technology and AI.
         </p>

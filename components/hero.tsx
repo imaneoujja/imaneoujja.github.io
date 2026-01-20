@@ -42,30 +42,30 @@ export function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center px-6 relative">
       <div className="max-w-3xl text-center">
-        <div className="mb-6">
+        <div className="mb-8">
           <Image
-            src="/epfl-logo.svg"
+            src="/logo.png"
             alt="EPFL Logo"
-            width={120}
-            height={40}
-            className="mx-auto opacity-80"
+            width={140}
+            height={50}
+            className="mx-auto"
           />
         </div>
         
-        <p className="text-muted-foreground mb-4">Hello, my name is</p>
+        <p className="text-muted-foreground text-lg mb-2">Hello, my name is</p>
         
-        <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight mb-4">
+        <h1 className="text-6xl md:text-8xl font-bold text-foreground tracking-tight mb-6">
           Imane Oujja
         </h1>
         
-        <div className="h-16 mb-6">
-          <p className="text-2xl md:text-3xl text-muted-foreground">
-            I am a <span className="text-primary">{displayedText}</span>
+        <div className="h-12 mb-8">
+          <p className="text-xl md:text-2xl text-muted-foreground">
+            I am a <span className="text-primary font-medium">{displayedText}</span>
             <span className="animate-pulse text-primary">|</span>
           </p>
         </div>
 
-        <p className="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
+        <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10 leading-relaxed">
           Currently a <span className="text-foreground font-medium">Computer Science Master&apos;s student</span> at{" "}
           <span className="text-primary font-medium">EPFL</span> with specialization in{" "}
           <span className="text-foreground font-medium">AI and Data Science</span>.
