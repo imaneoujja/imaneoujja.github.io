@@ -42,7 +42,7 @@ export function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center px-6 relative">
       <div className="max-w-3xl text-center">
-        <div className="mb-8">
+        <div className="mb-8 inline-block bg-white px-6 py-3 rounded-lg shadow-sm">
           <Image
             src="/logo.png"
             alt="EPFL Logo"
