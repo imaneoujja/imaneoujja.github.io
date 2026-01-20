@@ -41,12 +41,12 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 bg-muted/30">
+    <section id="projects" className="py-24 px-6 bg-muted/30">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-4">
+        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-4 text-center">
           Projects
         </h2>
-        <p className="text-muted-foreground mb-10 max-w-lg">
+        <p className="text-muted-foreground mb-10 max-w-lg mx-auto text-center">
           A selection of projects showcasing my experience across different technologies.
         </p>
 

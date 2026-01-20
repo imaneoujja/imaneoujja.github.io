@@ -24,9 +24,9 @@ const education = [
 
 export function Education() {
   return (
-    <section id="education" className="py-24 px-6 md:px-12 lg:px-24 bg-muted/30">
-      <div className="max-w-3xl">
-        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-12">
+    <section id="education" className="py-24 px-6 bg-muted/30">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-12 text-center">
           Education
         </h2>
 

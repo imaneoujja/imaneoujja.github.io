@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
+import Image from "next/image"
 
-const roles = ["Software Developer", "AI Enthusiast", "EPFL Student", "Problem Solver"]
+const roles = ["Student", "AI Enthusiast", "Aspiring Data Scientist", "Aspiring ML Engineer"]
 
 export function Hero() {
   const [currentRole, setCurrentRole] = useState(0)
@@ -39,8 +40,18 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 relative">
-      <div className="max-w-3xl">
+    <section className="min-h-screen flex flex-col justify-center items-center px-6 relative">
+      <div className="max-w-3xl text-center">
+        <div className="mb-6">
+          <Image
+            src="/epfl-logo.svg"
+            alt="EPFL Logo"
+            width={120}
+            height={40}
+            className="mx-auto opacity-80"
+          />
+        </div>
+        
         <p className="text-muted-foreground mb-4">Hello, my name is</p>
         
         <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight mb-4">
@@ -49,17 +60,18 @@ export function Hero() {
         
         <div className="h-16 mb-6">
           <p className="text-2xl md:text-3xl text-muted-foreground">
-            <span className="text-primary">{displayedText}</span>
+            I am a <span className="text-primary">{displayedText}</span>
             <span className="animate-pulse text-primary">|</span>
           </p>
         </div>
 
-        <p className="text-muted-foreground max-w-lg mb-8 leading-relaxed">
-          I build intelligent software and explore the frontiers of AI. 
-          Currently pursuing my Master&apos;s in Computer Science at EPFL, Switzerland.
+        <p className="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
+          Currently a <span className="text-foreground font-medium">Computer Science Master&apos;s student</span> at{" "}
+          <span className="text-primary font-medium">EPFL</span> with specialization in{" "}
+          <span className="text-foreground font-medium">AI and Data Science</span>.
         </p>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center justify-center gap-5">
           <a
             href="https://github.com/imaneoujja"
             target="_blank"

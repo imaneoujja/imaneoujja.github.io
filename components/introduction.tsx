@@ -2,9 +2,9 @@ import { GraduationCap, Code, Brain } from "lucide-react"
 
 export function Introduction() {
   return (
-    <section id="introduction" className="py-24 px-6 md:px-12 lg:px-24">
-      <div className="max-w-3xl">
-        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-8">
+    <section id="introduction" className="py-24 px-6">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-8 text-center">
           About
         </h2>
 

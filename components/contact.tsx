@@ -1,9 +1,9 @@
-import { Github, Linkedin, Mail, MapPin } from "lucide-react"
+iimport { Github, Linkedin, Mail, MapPin } from "lucide-react"
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 bg-muted/30">
-      <div className="max-w-3xl">
+    <section id="contact" className="py-24 px-6 bg-muted/30">
+      <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-8">
           Contact
         </h2>
@@ -12,12 +12,12 @@ export function Contact() {
           Let&apos;s work together
         </p>
         
-        <p className="text-muted-foreground mb-8 max-w-md leading-relaxed">
+        <p className="text-muted-foreground mb-8 max-w-md mx-auto leading-relaxed">
           I&apos;m always open to discussing new opportunities, collaborations, 
           or just having a chat about technology and AI.
         </p>
 
-        <div className="space-y-3 mb-8">
+        <div className="flex flex-col items-center gap-3 mb-8">
           <a
             href="mailto:i.oujja@gmail.com"
             className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
@@ -32,7 +32,7 @@ export function Contact() {
           </div>
         </div>
 
-        <div className="flex items-center gap-5">
+        <div className="flex items-center justify-center gap-5">
           <a
             href="https://github.com/imaneoujja"
             target="_blank"
