@@ -1,4 +1,4 @@
-iimport { Github, Linkedin, Mail, MapPin } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin } from "lucide-react"
 
 export function Contact() {
   return (
