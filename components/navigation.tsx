@@ -7,8 +7,6 @@ const navItems = [
   { label: "About", href: "#introduction" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Education", href: "#education" },
-  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -33,19 +31,19 @@ export function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : ""
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-24 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="text-xl font-bold hover:text-primary transition-colors"
+          className="font-medium text-foreground hover:text-primary transition-colors"
           onClick={(e) => {
             e.preventDefault()
             window.scrollTo({ top: 0, behavior: "smooth" })
           }}
         >
-          IO<span className="text-primary">.</span>
+          IO
         </a>
 
         {/* Desktop Navigation */}
@@ -64,22 +62,22 @@ export function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+          className="md:hidden text-foreground"
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border">
-          <div className="px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-background border-b border-border">
+          <div className="px-6 py-4 space-y-3">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
-                className="text-left text-muted-foreground hover:text-primary transition-colors py-2"
+                className="block text-muted-foreground hover:text-primary transition-colors"
               >
                 {item.label}
               </button>

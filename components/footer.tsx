@@ -1,12 +1,9 @@
 export function Footer() {
   return (
-    <footer className="py-8 px-6 border-t border-border">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-muted-foreground text-sm">
-          © {new Date().getFullYear()} Imane Oujja. All rights reserved.
-        </p>
-        <p className="text-muted-foreground text-sm">
-          Built with <span className="text-primary">Next.js</span> & <span className="text-primary">Tailwind CSS</span>
+    <footer className="py-8 px-6 md:px-12 lg:px-24 border-t border-border">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-sm text-muted-foreground text-center">
+          Designed & Built by Imane Oujja · {new Date().getFullYear()}
         </p>
       </div>
     </footer>
