@@ -4,11 +4,11 @@ export function Introduction() {
   return (
     <section id="introduction" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-8 text-center">
-          About
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
+          About Me
         </h2>
 
-        <div className="space-y-5 text-foreground leading-relaxed">
+        <div className="space-y-5 text-foreground text-lg leading-relaxed text-center">
           <p>
             I&apos;m a <span className="font-medium">Computer Science Master&apos;s student</span> at{" "}
             <span className="text-primary font-medium">EPFL</span>, Switzerland, 
