@@ -1,66 +1,54 @@
-import { GraduationCap, Calendar, MapPin } from "lucide-react"
-
 const education = [
   {
+    period: "2025 — 2027",
     degree: "MSc in Computer Science",
     institution: "EPFL",
     location: "Lausanne, Switzerland",
-    period: "2025 - 2027",
-    description: "Master's program focusing on advanced Computer Science topics",
+    details: "Master's program focusing on advanced Computer Science topics, ML, and distributed systems.",
   },
   {
+    period: "2024 — 2025",
     degree: "Exchange Program",
     institution: "University of Edinburgh",
-    location: "Edinburgh, United Kingdom",
-    period: "2024 - 2025",
-    description: "International exchange program broadening academic and cultural perspectives",
+    location: "Edinburgh, UK",
+    details: "International exchange broadening academic and cultural perspectives in AI and software engineering.",
   },
   {
+    period: "2022 — 2025",
     degree: "BSc in Communication Systems",
     institution: "EPFL",
     location: "Lausanne, Switzerland",
-    period: "2022 - 2025",
-    description:
-      "Algorithms, Software Construction, Databases, OOP, Machine Learning, Discrete Mathematics, Calculus, Probability & Statistics, Stochastic Modeling, Digital Communications",
+    details: "Algorithms, Software Construction, Databases, OOP, Machine Learning, Discrete Mathematics, Probability & Statistics.",
   },
 ]
 
 export function Education() {
   return (
-    <section id="education" className="py-24 px-6 bg-secondary/30">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold mb-2">
-          Education<span className="text-primary">.</span>
+    <section id="education" className="py-24 px-6 md:px-12 lg:px-24 bg-muted/30">
+      <div className="max-w-3xl">
+        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-12">
+          Education
         </h2>
-        <div className="w-16 h-1 bg-primary mb-12" />
 
-        <div className="space-y-6">
+        <div className="space-y-10">
           {education.map((edu, index) => (
             <div
               key={index}
-              className="p-6 rounded-lg bg-card border border-border hover:border-primary transition-colors group"
+              className="group grid md:grid-cols-[180px_1fr] gap-4"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                <div className="flex gap-4">
-                  <div className="p-3 rounded-lg bg-secondary h-fit">
-                    <GraduationCap className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">{edu.degree}</h3>
-                    <p className="text-foreground font-medium">{edu.institution}</p>
-                    <p className="text-muted-foreground text-sm mt-2">{edu.description}</p>
-                  </div>
-                </div>
-                <div className="flex flex-col text-sm text-muted-foreground md:text-right md:min-w-fit">
-                  <div className="flex items-center gap-2 md:justify-end">
-                    <Calendar className="w-4 h-4" />
-                    <span>{edu.period}</span>
-                  </div>
-                  <div className="flex items-center gap-2 md:justify-end mt-1">
-                    <MapPin className="w-4 h-4" />
-                    <span>{edu.location}</span>
-                  </div>
-                </div>
+              <p className="text-sm text-muted-foreground font-mono">
+                {edu.period}
+              </p>
+
+              <div>
+                <h3 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                  {edu.degree}
+                </h3>
+                <p className="text-primary text-sm">{edu.institution}</p>
+                <p className="text-muted-foreground text-xs">{edu.location}</p>
+                <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
+                  {edu.details}
+                </p>
               </div>
             </div>
           ))}

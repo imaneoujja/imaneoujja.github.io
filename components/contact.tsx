@@ -1,69 +1,55 @@
-import { Github, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { Github, Linkedin, Mail, MapPin } from "lucide-react"
 
 export function Contact() {
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-2">
-          Get in Touch<span className="text-primary">.</span>
+    <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 bg-muted/30">
+      <div className="max-w-3xl">
+        <h2 className="text-xs font-medium text-primary uppercase tracking-widest mb-8">
+          Contact
         </h2>
-        <div className="w-16 h-1 bg-primary mb-8 mx-auto" />
 
-        <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto">
-          I&apos;m always open to discussing new opportunities, collaborations, or just having a chat about technology
-          and innovation.
+        <p className="text-2xl md:text-3xl font-medium text-foreground mb-6 text-balance">
+          Let&apos;s work together
+        </p>
+        
+        <p className="text-muted-foreground mb-8 max-w-md leading-relaxed">
+          I&apos;m always open to discussing new opportunities, collaborations, 
+          or just having a chat about technology and AI.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-6 mb-12">
+        <div className="space-y-3 mb-8">
           <a
             href="mailto:i.oujja@gmail.com"
-            className="flex items-center gap-3 px-6 py-4 rounded-lg bg-card border border-border hover:border-primary transition-colors group"
+            className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
           >
-            <Mail className="w-5 h-5 text-primary" />
-            <span className="text-muted-foreground group-hover:text-foreground transition-colors">
-              i.oujja@gmail.com
-            </span>
+            <Mail className="w-4 h-4" />
+            <span>i.oujja@gmail.com</span>
           </a>
 
-          <a
-            href="tel:+41767127571"
-            className="flex items-center gap-3 px-6 py-4 rounded-lg bg-card border border-border hover:border-primary transition-colors group"
-          >
-            <Phone className="w-5 h-5 text-primary" />
-            <span className="text-muted-foreground group-hover:text-foreground transition-colors">+41 76 712 7571</span>
-          </a>
-
-          <div className="flex items-center gap-3 px-6 py-4 rounded-lg bg-card border border-border">
-            <MapPin className="w-5 h-5 text-primary" />
-            <span className="text-muted-foreground">Lausanne, Switzerland</span>
+          <div className="flex items-center gap-3 text-muted-foreground">
+            <MapPin className="w-4 h-4" />
+            <span>Lausanne, Switzerland</span>
           </div>
         </div>
 
-        <div className="flex justify-center gap-6">
+        <div className="flex items-center gap-5">
           <a
             href="https://github.com/imaneoujja"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-full border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all"
-            aria-label="GitHub Profile"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
-            <Github className="w-6 h-6" />
+            <Github className="w-4 h-4" />
+            <span className="text-sm">GitHub</span>
           </a>
           <a
             href="https://www.linkedin.com/in/imane-oujja-65165011a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-4 rounded-full border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all"
-            aria-label="LinkedIn Profile"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
-            <Linkedin className="w-6 h-6" />
-          </a>
-          <a
-            href="mailto:i.oujja@gmail.com"
-            className="p-4 rounded-full border border-border hover:border-primary hover:bg-primary/10 hover:text-primary transition-all"
-            aria-label="Email"
-          >
-            <Mail className="w-6 h-6" />
+            <Linkedin className="w-4 h-4" />
+            <span className="text-sm">LinkedIn</span>
           </a>
         </div>
       </div>
