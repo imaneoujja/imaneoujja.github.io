@@ -1,4 +1,5 @@
 import React from "react"
+import Script from "next/script"
 import type { Metadata } from 'next'
 import { Inter, Fira_Code } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
@@ -6,21 +7,6 @@ import './globals.css'
 
 const _inter = Inter({ subsets: ["latin"] });
 const _firaCode = Fira_Code({ subsets: ["latin"] });
-
-const polyfillScript = `
-(function() {
-  try {
-    var mp = Object.getPrototypeOf(new Map().values());
-    if (mp && !mp.toArray) {
-      mp.toArray = function() { return Array.from(this); };
-    }
-    var sp = Object.getPrototypeOf(new Set().values());
-    if (sp && !sp.toArray) {
-      sp.toArray = function() { return Array.from(this); };
-    }
-  } catch(e) {}
-})();
-`
 
 export const metadata: Metadata = {
   title: 'Imane Oujja | Software Developer & AI Enthusiast',
@@ -36,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: polyfillScript }} />
+        <Script src="/polyfill.js" strategy="beforeInteractive" />
       </head>
       <body className={`font-sans antialiased`}>
         {children}

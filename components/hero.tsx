@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react"
+import { GithubIcon, LinkedinIcon, MailIcon, ChevronDownIcon } from "@/components/icons"
 
 const roles = ["student", "AI enthusiast", "aspiring data scientist", "aspiring ML engineer"]
 
@@ -74,7 +74,7 @@ export function Hero() {
             className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
             aria-label="GitHub"
           >
-            <Github className="w-5 h-5" />
+            <GithubIcon className="w-5 h-5" />
           </a>
           <a
             href="https://www.linkedin.com/in/imane-oujja-65165011a/"
@@ -83,14 +83,14 @@ export function Hero() {
             className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
             aria-label="LinkedIn"
           >
-            <Linkedin className="w-5 h-5" />
+            <LinkedinIcon className="w-5 h-5" />
           </a>
           <a
             href="mailto:i.oujja@gmail.com"
             className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
             aria-label="Email"
           >
-            <Mail className="w-5 h-5" />
+            <MailIcon className="w-5 h-5" />
           </a>
         </div>
       </div>
