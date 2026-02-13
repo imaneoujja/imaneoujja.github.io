@@ -1,42 +1,28 @@
-import { GraduationCap, Code, Brain } from "lucide-react"
-
 export function Introduction() {
   return (
-    <section id="introduction" className="py-24 px-6">
+    <section id="introduction" className="py-28 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
-          About Me
+        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+          Introduction<span className="text-primary">.</span>
         </h2>
 
-        <div className="space-y-5 text-foreground text-lg leading-relaxed text-center">
+        <div className="text-lg md:text-xl leading-relaxed space-y-6 text-muted-foreground">
           <p>
-            I&apos;m a <span className="font-medium">Computer Science Master&apos;s student</span> at{" "}
-            <span className="text-primary font-medium">EPFL</span>, Switzerland, 
-            with a passion for building intelligent systems and solving complex problems.
+            I am a Computer Science Master&apos;s student at{" "}
+            <span className="text-primary font-semibold">EPFL</span> with specialization in{" "}
+            <span className="text-foreground font-medium">AI and Data Science</span>.
+            As an aspiring data scientist and ML engineer, my aim is to{" "}
+            <span className="text-foreground font-medium">leverage AI to solve real-world problems at scale</span>.
           </p>
-          <p className="text-muted-foreground">
-            With experience from an exchange program at the University of Edinburgh and hands-on work at companies
-            like JPMorgan Chase and MATISA S.A., I am motivated to apply programming and
-            analytical skills to design intelligent, efficient, and scalable solutions.
+          <p>
+            With experience from an exchange at the{" "}
+            <span className="text-foreground font-medium">University of Edinburgh</span> and hands-on work at{" "}
+            <span className="text-foreground font-medium">JPMorgan Chase</span> and{" "}
+            <span className="text-foreground font-medium">MATISA S.A.</span>, I am driven to design intelligent,
+            efficient, and scalable solutions. I strongly believe in{" "}
+            <span className="text-primary font-semibold">learning by doing</span>, and have consistently sought
+            out opportunities to grow my skills.
           </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-5 mt-12">
-          <div className="p-5 rounded-lg border border-border hover:border-primary/40 transition-colors">
-            <GraduationCap className="w-6 h-6 text-primary mb-3" />
-            <h3 className="font-medium text-foreground mb-1">Education</h3>
-            <p className="text-muted-foreground text-sm">EPFL MSc + Edinburgh Exchange</p>
-          </div>
-          <div className="p-5 rounded-lg border border-border hover:border-primary/40 transition-colors">
-            <Code className="w-6 h-6 text-primary mb-3" />
-            <h3 className="font-medium text-foreground mb-1">Development</h3>
-            <p className="text-muted-foreground text-sm">Python, Java, C, Full-Stack</p>
-          </div>
-          <div className="p-5 rounded-lg border border-border hover:border-primary/40 transition-colors">
-            <Brain className="w-6 h-6 text-primary mb-3" />
-            <h3 className="font-medium text-foreground mb-1">AI & ML</h3>
-            <p className="text-muted-foreground text-sm">Deep Learning, Data Analysis</p>
-          </div>
         </div>
       </div>
     </section>

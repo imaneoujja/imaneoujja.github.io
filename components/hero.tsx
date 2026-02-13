@@ -1,10 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react"
-import Image from "next/image"
+import { Github, Linkedin, Mail, ChevronDown } from "lucide-react"
 
-const roles = ["Student", "AI Enthusiast", "Aspiring Data Scientist", "Aspiring ML Engineer"]
+const roles = ["student", "AI enthusiast", "aspiring data scientist", "aspiring ML engineer"]
 
 export function Hero() {
   const [currentRole, setCurrentRole] = useState(0)
@@ -28,7 +27,9 @@ export function Hero() {
 
     const timeout = setTimeout(() => {
       setDisplayedText(
-        isDeleting ? role.substring(0, displayedText.length - 1) : role.substring(0, displayedText.length + 1)
+        isDeleting
+          ? role.substring(0, displayedText.length - 1)
+          : role.substring(0, displayedText.length + 1),
       )
     }, typeSpeed)
 
@@ -41,43 +42,37 @@ export function Hero() {
 
   return (
     <section className="min-h-screen flex flex-col justify-center items-center px-6 relative">
-      <div className="max-w-3xl text-center">
-        <div className="mb-8 inline-block bg-white px-6 py-3 rounded-lg shadow-sm">
-          <Image
+      <div className="max-w-4xl text-center">
+        <div className="mb-8">
+          <img
             src="/logo.png"
             alt="EPFL Logo"
-            width={140}
-            height={50}
-            className="mx-auto"
+            width={120}
+            height={40}
+            className="mx-auto brightness-0 invert opacity-60"
           />
         </div>
-        
-        <p className="text-muted-foreground text-lg mb-2">Hello, my name is</p>
-        
-        <h1 className="text-6xl md:text-8xl font-bold text-foreground tracking-tight mb-6">
-          Imane Oujja
-        </h1>
-        
-        <div className="h-12 mb-8">
-          <p className="text-xl md:text-2xl text-muted-foreground">
-            I am a <span className="text-primary font-medium">{displayedText}</span>
-            <span className="animate-pulse text-primary">|</span>
-          </p>
-        </div>
 
-        <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-          Currently a <span className="text-foreground font-medium">Computer Science Master&apos;s student</span> at{" "}
-          <span className="text-primary font-medium">EPFL</span> with specialization in{" "}
-          <span className="text-foreground font-medium">AI and Data Science</span>.
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4">
+          {"Hi! My name is "}
+          <span className="text-primary">Imane</span>
+        </h1>
+
+        <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+          I am a{" "}
+          <span className="text-primary font-semibold">
+            {displayedText}
+            <span className="animate-pulse">|</span>
+          </span>
         </p>
 
-        <div className="flex items-center justify-center gap-5">
+        <div className="flex gap-6 justify-center mb-6">
           <a
             href="https://github.com/imaneoujja"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="GitHub Profile"
+            className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
+            aria-label="GitHub"
           >
             <Github className="w-5 h-5" />
           </a>
@@ -85,14 +80,14 @@ export function Hero() {
             href="https://www.linkedin.com/in/imane-oujja-65165011a/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
-            aria-label="LinkedIn Profile"
+            className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
+            aria-label="LinkedIn"
           >
             <Linkedin className="w-5 h-5" />
           </a>
           <a
             href="mailto:i.oujja@gmail.com"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
             aria-label="Email"
           >
             <Mail className="w-5 h-5" />
@@ -102,10 +97,10 @@ export function Hero() {
 
       <button
         onClick={scrollToIntro}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-bounce"
-        aria-label="Scroll to introduction"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-bounce"
+        aria-label="Scroll down"
       >
-        <ArrowDown className="w-5 h-5" />
+        <ChevronDown className="w-7 h-7" />
       </button>
     </section>
   )
