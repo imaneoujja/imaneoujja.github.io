@@ -11,8 +11,12 @@ const programs = [
     role: "Women in Trading Insight Week",
     organization: "",
     location: "London Area, United Kingdom",
-    description:
-      "Shadowed traders across fuel, middle distillates, and LNG desks while gaining hands-on exposure to OTC crude and refined oil trading. Participated in live trade blotter exercises, generated a positive PnL in pit trading simulations, and presented an independent study on the OTC trade lifecycle to senior traders. Explored the role of technology in PnL optimisation and deepened understanding of market structure, execution, and risk through trader Q&As and shadowing.",
+    description: [
+      "Shadowed traders across fuel, middle distillates, and LNG desks while gaining hands-on exposure to OTC crude and refined oil trading",
+      "Participated in live trade blotter exercises, generated a positive PnL in pit trading simulations",
+      "Presented an independent study on the OTC trade lifecycle to senior traders",
+      "Explored the role of technology in PnL optimisation and deepened understanding of market structure, execution, and risk through trader Q&As and shadowing",
+    ],
     icon: Award,
     highlight: true,
   },
@@ -21,8 +25,11 @@ const programs = [
     role: "WAVE Fellowship Participant",
     organization: "Webloom & SAP",
     location: "Switzerland",
-    description:
-      "Selected participant in a competitive fellowship focused on AI and sustainability. Co-developed a carbon profitability model linking emissions data to financial impact. Pitched the solution to industry experts at Google Zurich.",
+    description: [
+      "Selected participant in a competitive fellowship focused on AI and sustainability",
+      "Co-developed a carbon profitability model linking emissions data to financial impact",
+      "Pitched the solution to industry experts at Google Zurich",
+    ],
     icon: Award,
     highlight: true,
   },
@@ -31,8 +38,11 @@ const programs = [
     role: "Spring into Software Engineering",
     organization: "JPMorgan Chase",
     location: "UK",
-    description:
-      "Participated in an intensive software engineering program combining workshops and a social-impact hackathon. Gained exposure to agile methodologies, test-driven development, and collaborative engineering practices. Received direct offer for SWE Summer Internship (2026).",
+    description: [
+      "Participated in an intensive software engineering program combining workshops and a social-impact hackathon",
+      "Gained exposure to agile methodologies, test-driven development, and collaborative engineering practices",
+      "Received direct offer for SWE Summer Internship (2026)",
+    ],
     icon: Award,
     highlight: true,
   },
@@ -114,7 +124,14 @@ export default function Programs() {
                     </div>
                   </div>
 
-                  <p className="text-epfl-dark/70 leading-relaxed">{program.description}</p>
+                  <ul className="space-y-2">
+                    {program.description.map((item, itemIndex) => (
+                      <li key={itemIndex} className="text-epfl-dark/70 flex items-start gap-3 leading-relaxed">
+                        <span className="text-epfl-red mt-1 shrink-0 font-bold">{">"}</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             );

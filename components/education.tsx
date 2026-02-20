@@ -123,25 +123,63 @@ export default function Education() {
                         </span>
                       </div>
                     </div>
-                    <p className="text-epfl-dark/70 leading-relaxed">{edu.details}</p>
+                    <p className="text-epfl-dark/70 leading-relaxed">
+                      {edu.details.includes("ranked 11th worldwide") ? (
+                        <>
+                          Master&apos;s program focusing on Machine Learning, Data Science, Distributed Systems, and advanced AI topics. EPFL is{" "}
+                          <a
+                            href="https://www.topuniversities.com/university-subject-rankings/data-science-artificial-intelligence"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-epfl-red font-semibold hover:text-epfl-pink underline transition-colors"
+                          >
+                            ranked 11th worldwide by QS Rankings
+                          </a>
+                          .
+                        </>
+                      ) : (
+                        edu.details
+                      )}
+                    </p>
                     {edu.highlight && (
                       <div className="mt-6 pt-6 border-t border-epfl-red/20">
                         <p className="text-sm font-semibold text-epfl-dark mb-3">Relevant Courses:</p>
                         <div className="flex flex-wrap gap-2">
                           {[
-                            "Machine Learning",
-                            "Applied Data Analysis",
-                            "Visual Intelligence",
-                            "Modern NLP",
-                            "Data Visualisation",
-                            "Neuroscience Foundations for Engineers",
+                            {
+                              name: "Machine Learning",
+                              url: "https://edu.epfl.ch/coursebook/fr/machine-learning-CS-433",
+                            },
+                            {
+                              name: "Applied Data Analysis",
+                              url: "https://edu.epfl.ch/coursebook/en/applied-data-analysis-CS-401",
+                            },
+                            {
+                              name: "Visual Intelligence",
+                              url: "https://edu.epfl.ch/coursebook/en/visual-intelligence-CS-503",
+                            },
+                            {
+                              name: "Modern NLP",
+                              url: "https://edu.epfl.ch/coursebook/en/modern-natural-language-processing-CS-552",
+                            },
+                            {
+                              name: "Data Visualisation",
+                              url: "https://edu.epfl.ch/coursebook/fr/data-visualization-COM-480",
+                            },
+                            {
+                              name: "Neuroscience Foundations for Engineers",
+                              url: "https://edu.epfl.ch/coursebook/fr/neuroscience-foundations-for-engineers-BIOENG-310",
+                            },
                           ].map((course, courseIndex) => (
-                            <span
+                            <a
                               key={courseIndex}
-                              className="text-xs font-medium text-epfl-red bg-epfl-red/10 px-3 py-1.5 rounded-full border border-epfl-red/20"
+                              href={course.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs font-medium text-epfl-red bg-epfl-red/10 px-3 py-1.5 rounded-full border border-epfl-red/20 hover:bg-epfl-red/20 hover:border-epfl-red/40 hover:scale-105 transition-all duration-300 cursor-pointer"
                             >
-                              {course}
-                            </span>
+                              {course.name}
+                            </a>
                           ))}
                         </div>
                       </div>

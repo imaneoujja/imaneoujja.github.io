@@ -84,11 +84,18 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-epfl-red/10 border border-epfl-red/20 backdrop-blur-sm">
+          <a
+            href="https://www.topuniversities.com/university-subject-rankings/data-science-artificial-intelligence"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-epfl-red/10 border border-epfl-red/20 backdrop-blur-sm hover:bg-epfl-red/20 hover:border-epfl-red/40 transition-all duration-300 group"
+          >
             <span className="text-xs font-semibold text-epfl-red">EPFL</span>
             <span className="text-xs text-epfl-dark/50">•</span>
-            <span className="text-xs text-epfl-dark/70">Ranked 11th Worldwide</span>
-          </div>
+            <span className="text-xs text-epfl-dark/70 group-hover:text-epfl-red transition-colors">
+              Ranked 11th Worldwide
+            </span>
+          </a>
         </motion.div>
 
         <motion.h1
