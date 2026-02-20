@@ -4,42 +4,42 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Dark EPFL theme: Red, Pink, White on Dark */
-  --background: oklch(0.16 0.01 10);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.19 0.015 10);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.19 0.015 10);
-  --popover-foreground: oklch(0.95 0 0);
-  /* EPFL Red */
-  --primary: oklch(0.6 0.22 20);
-  --primary-foreground: oklch(0.99 0 0);
-  /* Soft pink */
-  --secondary: oklch(0.22 0.02 350);
-  --secondary-foreground: oklch(0.9 0 0);
-  --muted: oklch(0.25 0.015 10);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.75 0.12 350);
-  --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.6 0.22 20);
+  /* EPFL Theme: Red, White, Pink - Creative & Vibrant */
+  --background: oklch(0.98 0 0); /* Pure white */
+  --foreground: oklch(0.15 0.02 10); /* Dark text */
+  --card: oklch(0.99 0.005 0); /* Slightly off-white */
+  --card-foreground: oklch(0.15 0.02 10);
+  --popover: oklch(0.99 0.005 0);
+  --popover-foreground: oklch(0.15 0.02 10);
+  /* EPFL Red - Primary */
+  --primary: oklch(0.55 0.25 25); /* Vibrant EPFL red */
+  --primary-foreground: oklch(0.99 0 0); /* White text */
+  /* EPFL Pink - Secondary */
+  --secondary: oklch(0.75 0.15 350); /* Soft pink */
+  --secondary-foreground: oklch(0.15 0.02 10);
+  --muted: oklch(0.92 0.01 0); /* Light gray */
+  --muted-foreground: oklch(0.45 0.02 10);
+  --accent: oklch(0.85 0.12 340); /* Light pink accent */
+  --accent-foreground: oklch(0.15 0.02 10);
+  --destructive: oklch(0.55 0.25 25); /* EPFL red */
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.28 0.02 10);
-  --input: oklch(0.22 0.02 10);
-  --ring: oklch(0.6 0.22 20);
-  --chart-1: oklch(0.6 0.22 20);
-  --chart-2: oklch(0.75 0.12 350);
-  --chart-3: oklch(0.65 0.15 10);
-  --chart-4: oklch(0.7 0.08 350);
-  --chart-5: oklch(0.6 0.18 25);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.19 0.015 10);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.6 0.22 20);
+  --border: oklch(0.88 0.02 0); /* Light border */
+  --input: oklch(0.95 0.01 0);
+  --ring: oklch(0.55 0.25 25); /* EPFL red ring */
+  --chart-1: oklch(0.55 0.25 25); /* EPFL red */
+  --chart-2: oklch(0.75 0.15 350); /* Pink */
+  --chart-3: oklch(0.85 0.12 340); /* Light pink */
+  --chart-4: oklch(0.65 0.18 20); /* Red-orange */
+  --chart-5: oklch(0.70 0.14 330); /* Pink-red */
+  --radius: 0.75rem;
+  --sidebar: oklch(0.99 0.005 0);
+  --sidebar-foreground: oklch(0.15 0.02 10);
+  --sidebar-primary: oklch(0.55 0.25 25);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.22 0.02 350);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.28 0.02 10);
-  --sidebar-ring: oklch(0.6 0.22 20);
+  --sidebar-accent: oklch(0.75 0.15 350);
+  --sidebar-accent-foreground: oklch(0.15 0.02 10);
+  --sidebar-border: oklch(0.88 0.02 0);
+  --sidebar-ring: oklch(0.55 0.25 25);
 }
 
 @theme inline {
@@ -89,5 +89,59 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px oklch(0.55 0.25 25 / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px oklch(0.55 0.25 25 / 0.6);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
   }
 }
