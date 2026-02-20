@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, MapPin, GraduationCap } from "lucide-react";
-import Image from "next/image";
+// Using regular img tag for static export compatibility
 
 const education = [
   {
@@ -92,7 +92,7 @@ export default function Education() {
 
                 <div className="p-6 md:p-8 flex gap-6">
                   <div className="shrink-0 w-16 h-16 rounded-xl bg-epfl-red/10 flex items-center justify-center overflow-hidden border border-epfl-red/20">
-                    <Image
+                    <img
                       src={edu.logo}
                       alt={`${edu.institution} logo`}
                       width={40}
