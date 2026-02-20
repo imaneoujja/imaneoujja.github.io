@@ -1,13 +1,12 @@
-import { Navigation } from "@/components/navigation"
-import { Hero } from "@/components/hero"
-import { Introduction } from "@/components/introduction"
-import { Experience } from "@/components/experience"
-import { Projects } from "@/components/projects"
-import { Education } from "@/components/education"
-import { Skills } from "@/components/skills"
-import { Volunteering } from "@/components/volunteering"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
+import Hero from "@/components/Hero";
+import Introduction from "@/components/Introduction";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Education from "@/components/Education";
+import Programs from "@/components/Programs";
+import Skills from "@/components/Skills";
+import Contact from "@/components/Contact";
+import Navigation from "@/components/Navigation";
 
 export default function Home() {
   return (
@@ -15,13 +14,12 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Introduction />
-      <Projects />
       <Experience />
+      <Projects />
       <Education />
+      <Programs />
       <Skills />
-      <Volunteering />
       <Contact />
-      <Footer />
     </main>
-  )
+  );
 }
