@@ -1,12 +1,12 @@
-import Hero from "@/components/Hero";
-import Introduction from "@/components/Introduction";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Education from "@/components/Education";
-import Programs from "@/components/Programs";
-import Skills from "@/components/Skills";
-import Contact from "@/components/Contact";
-import Navigation from "@/components/Navigation";
+import Hero from "@/components/hero";
+import Introduction from "@/components/introduction";
+import Experience from "@/components/experience";
+import Projects from "@/components/projects";
+import Education from "@/components/education";
+import Programs from "@/components/programs";
+import Skills from "@/components/skills";
+import Contact from "@/components/contact";
+import Navigation from "@/components/navigation";
 
 export default function Home() {
   return (
