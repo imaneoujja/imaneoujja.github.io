@@ -17,8 +17,8 @@ A creative and interactive portfolio website showcasing my journey as a Master's
 - **Projects**: Featured projects including NLP, ML, and Data Science work
 - **Experience**: Work experience timeline with achievements
 - **Education**: Academic journey with university logos
-- **Programs & Initiatives**: WAVE Fellowship, JPMorgan Chase, EPFelles
-- **Skills**: Programming languages, technologies, and concepts
+- **Beyond the Code**: Hackathon win, WAVE Fellowships, Dare Trading Insight Week, EPFelles
+- **Skills**: Generative AI, ML & NLP, data, engineering, certifications, languages
 - **Contact**: Get in touch section with social links
 
 ## Getting Started

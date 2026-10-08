@@ -8,7 +8,7 @@ const navItems = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
-  { label: "Programs", href: "#programs" },
+  { label: "Beyond", href: "#programs" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
@@ -64,6 +64,7 @@ export default function Navigation() {
 
         <button
           onClick={() => setIsMobileOpen(!isMobileOpen)}
+          aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           className="md:hidden text-epfl-dark"
         >
           {isMobileOpen ? <X size={24} /> : <Menu size={24} />}

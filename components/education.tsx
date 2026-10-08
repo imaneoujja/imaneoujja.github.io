@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Calendar, MapPin, GraduationCap } from "lucide-react";
-// Using regular img tag for static export compatibility
+import LogoTile from "@/components/logo-tile";
 
 const education = [
   {
@@ -12,8 +12,9 @@ const education = [
     specialization: "Specialization in AI and Data Science",
     institution: "EPFL",
     location: "Lausanne, Switzerland",
-    period: "2025 - 2027",
+    period: "Sept 2025 - Present",
     logo: "/logos/epfl.png",
+    logoFit: "cover" as const,
     details:
       "Master's program focusing on Machine Learning, Data Science, Distributed Systems, and advanced AI topics. EPFL is ranked 11th worldwide by QS Rankings.",
     highlight: true,
@@ -25,6 +26,7 @@ const education = [
     location: "Edinburgh, UK",
     period: "2024 - 2025",
     logo: "/logos/edinburgh.png",
+    logoFit: "contain" as const,
     details:
       "International exchange broadening academic and cultural perspectives in AI and software engineering.",
     highlight: false,
@@ -36,6 +38,7 @@ const education = [
     location: "Lausanne, Switzerland",
     period: "2022 - 2025",
     logo: "/logos/epfl.png",
+    logoFit: "cover" as const,
     details:
       "Algorithms, Software Construction, Databases, OOP, Machine Learning, Discrete Mathematics, Probability & Statistics.",
     highlight: false,
@@ -84,28 +87,21 @@ export default function Education() {
                     : "bg-epfl-white border-epfl-red/20 hover:border-epfl-red/50"
                 } hover:shadow-xl`}
               >
-                {edu.highlight && (
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-epfl-red/20 border border-epfl-red/30">
-                    <span className="text-xs font-semibold text-epfl-red">Current</span>
-                  </div>
-                )}
 
-                <div className="p-6 md:p-8 flex gap-6">
-                  <div className="shrink-0 w-16 h-16 rounded-xl bg-epfl-red/10 flex items-center justify-center overflow-hidden border border-epfl-red/20">
-                    <img
-                      src={edu.logo}
-                      alt={`${edu.institution} logo`}
-                      width={40}
-                      height={40}
-                      className="object-contain"
-                    />
-                  </div>
+                <div className="p-6 md:p-8 flex flex-col sm:flex-row gap-4 sm:gap-6">
+                  <LogoTile src={edu.logo} alt={`${edu.institution} logo`} fit={edu.logoFit} fallbackIcon={GraduationCap} />
 
                   <div className="flex-grow">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
                       <div>
                         <h3 className="text-xl md:text-2xl font-bold text-epfl-dark group-hover:text-epfl-red transition-colors mb-1">
                           {edu.degree}
+                          {edu.highlight && (
+                            <span className="ml-3 align-middle inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-epfl-red/20 border border-epfl-red/30 text-xs font-semibold text-epfl-red">
+                              <span className="w-1.5 h-1.5 rounded-full bg-epfl-red animate-pulse" />
+                              Current
+                            </span>
+                          )}
                         </h3>
                         {edu.specialization && (
                           <p className="text-epfl-red font-semibold text-sm mb-1">{edu.specialization}</p>

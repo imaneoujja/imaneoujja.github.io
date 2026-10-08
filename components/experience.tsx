@@ -3,20 +3,67 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, MapPin, Building2, Award } from "lucide-react";
+import { Calendar, MapPin, Building2, Sparkles } from "lucide-react";
+import LogoTile from "@/components/logo-tile";
 
-const experiences = [
+type Experience = {
+  title: string;
+  company: string;
+  team?: string;
+  location: string;
+  period: string;
+  logo?: string;
+  logoFit?: "cover" | "contain";
+  description: string[];
+  tags: string[];
+  highlight: boolean;
+  badge?: string;
+};
+
+const experiences: Experience[] = [
+  {
+    title: "Research Project",
+    company: "Integrated Neurotechnologies Lab, EPFL",
+    location: "Campus Biotech, Geneva",
+    period: "Sept 2026 - Present",
+    logo: "/logos/campus-biotech.png",
+    logoFit: "contain",
+    description: [
+      "Building a self-supervised foundation model for heterogeneous electrocorticography (ECoG) brain signals, combining LUNA's topology-agnostic latent cross-attention architecture with LaBraM's vector-quantization tokenizer",
+      "Currently training the vector-quantization tokenizer, the first stage of the pipeline",
+      "Goal: learn representations that transfer across public ECoG datasets",
+    ],
+    tags: ["Python", "PyTorch", "Self-Supervised Learning", "Foundation Models", "Neuroscience"],
+    highlight: true,
+    badge: "Current",
+  },
+  {
+    title: "Software Engineer Intern",
+    company: "JPMorgan Chase",
+    team: "Liquidity Risk Infrastructure",
+    location: "Glasgow Technology Centre, UK",
+    period: "June - Aug 2026",
+    logo: "/logos/JPMorganChase-brown-and-white.jpg",
+    description: [
+      "Designed and deployed a multi-agent LLM system: a delegating agent orchestrates sub-agents that call internal enterprise tools via MCP (Model Context Protocol) servers to carry out multi-step scenario-analysis tasks, letting business users ask questions in natural language and receive automated variance reports",
+      "Built the natural-language understanding layer on Amazon Bedrock, resolving ambiguous business queries and mapping them reliably to structured internal actions, with a focus on correctness and reproducibility of outputs",
+      "Developed domain-specific agent skills for two production use cases (Sources & Uses and International Reporting)",
+      "Automated an end-to-end workflow, from Apache Airflow-orchestrated data pipelines to report generation, cutting manual processing time by 60%",
+    ],
+    tags: ["Multi-Agent LLMs", "MCP", "Amazon Bedrock", "Apache Airflow", "Python", "Agile"],
+    highlight: true,
+  },
   {
     title: "ERP Data Analyst Intern",
     company: "MATISA S.A.",
     location: "Crissier, Switzerland",
-    period: "July - Aug 2025",
+    period: "July - Sept 2025",
+    logo: "/logos/logo_matisa_RVB.jpg",
     description: [
-      "Analyzed large-scale ERP data extractions and validated data accuracy using structured methodologies",
-      "Supported data cleaning and reconciliation across sales, purchasing, and production datasets",
-      "Applied internal data-control procedures to ensure consistency, reliability, and traceability",
+      "Validated and reconciled data across ERP modules (sales, purchasing, production), cleaning and structuring large-scale datasets to improve data consistency and reporting accuracy",
+      "Automated client data-renewal outreach with Excel VBA macros that triggered email requests to update records",
     ],
-    tags: ["Data Analysis", "ERP Systems", "Data Quality"],
+    tags: ["Data Analysis", "ERP Systems", "Data Quality", "VBA Automation"],
     highlight: false,
   },
   {
@@ -37,14 +84,100 @@ const experiences = [
     company: "EPFL",
     location: "Lausanne, Switzerland",
     period: "Since Feb 2023",
+    logo: "/logos/epfl.png",
     description: [
       "Assisted in teaching Numerical Analysis with Python, Calculus I and Physics for CS students",
-      "Mentored 15 CS students weekly to support them academically in their first year at EPFL",
+      "Mentored 15+ CS students weekly to support them academically in their first year at EPFL",
     ],
     tags: ["Teaching", "Python", "Mentoring", "Education"],
     highlight: false,
   },
 ];
+
+function ExperienceCard({ exp, index }: { exp: Experience; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -30 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="relative group"
+    >
+      <div
+        className={`absolute left-[26px] top-8 w-4 h-4 rounded-full border-4 z-10 hidden md:block transition-all ${
+          exp.highlight
+            ? "bg-epfl-red border-epfl-red/30 shadow-[0_0_0_6px_rgba(226,0,31,0.12)]"
+            : "bg-epfl-white border-epfl-red/50 group-hover:border-epfl-red"
+        }`}
+      />
+
+      <div
+        className={`relative md:ml-16 p-6 md:p-8 rounded-2xl border-2 transition-all duration-300 ${
+          exp.highlight
+            ? "bg-gradient-to-br from-epfl-red/10 via-epfl-pink/5 to-epfl-red/10 border-epfl-red/30 hover:border-epfl-red/60"
+            : "bg-epfl-white border-epfl-red/20 hover:border-epfl-red/50"
+        } hover:shadow-xl`}
+      >
+        {exp.highlight && (
+          <div className="inline-flex md:absolute md:top-4 md:right-4 mb-4 md:mb-0 items-center gap-1 px-3 py-1 rounded-full bg-epfl-red/20 border border-epfl-red/30">
+            <Sparkles className="w-3 h-3 text-epfl-red" />
+            <span className="text-xs font-semibold text-epfl-red">{exp.badge ?? "Latest"}</span>
+          </div>
+        )}
+
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+          <div className="flex items-start gap-4 flex-1">
+            <LogoTile src={exp.logo} alt={`${exp.company} logo`} fit={exp.logoFit} fallbackIcon={Building2} />
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold text-epfl-dark group-hover:text-epfl-red transition-colors mb-1">
+                {exp.title}
+              </h3>
+              <p className="text-epfl-red font-semibold">{exp.company}</p>
+              {exp.team && <p className="text-sm text-epfl-dark/60">{exp.team}</p>}
+            </div>
+          </div>
+          <div className={`flex flex-col text-sm text-epfl-dark/60 md:text-right shrink-0 gap-1 ${exp.highlight ? "md:mt-10" : ""}`}>
+            <span className="flex items-center gap-1.5 md:justify-end">
+              <Calendar className="w-4 h-4" />
+              {exp.period}
+            </span>
+            <span className="flex items-center gap-1.5 md:justify-end">
+              <MapPin className="w-4 h-4" />
+              {exp.location}
+            </span>
+          </div>
+        </div>
+
+        <ul className="space-y-2 mb-6">
+          {exp.description.map((item, i) => (
+            <li key={i} className="text-epfl-dark/70 flex items-start gap-3 leading-relaxed">
+              <span className="text-epfl-red mt-1 shrink-0 font-bold">{">"}</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex flex-wrap gap-2">
+          {exp.tags.map((tag) => (
+            <span
+              key={tag}
+              className={`text-xs font-medium px-3 py-1.5 rounded-full border ${
+                exp.highlight
+                  ? "text-epfl-red bg-epfl-red/10 border-epfl-red/30"
+                  : "text-epfl-pink bg-epfl-pink/10 border-epfl-pink/30"
+              }`}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Experience() {
   const ref = useRef(null);
@@ -66,7 +199,9 @@ export default function Experience() {
           </h2>
           <div className="w-24 h-1 bg-gradient-epfl mb-6 rounded-full" />
           <p className="text-epfl-dark/70 text-lg md:text-xl max-w-2xl">
-            From internships at leading companies to teaching and mentoring, each experience has shaped my journey in tech.
+            From <span className="text-epfl-pink font-semibold">foundation-model research</span> at Campus Biotech and{" "}
+            <span className="text-epfl-red font-semibold">agentic AI systems</span> at JPMorgan Chase to data work in
+            industry and years of teaching at EPFL.
           </p>
         </motion.div>
 
@@ -74,86 +209,9 @@ export default function Experience() {
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-epfl-red via-epfl-pink to-epfl-red opacity-30 hidden md:block" />
 
           <div className="space-y-12">
-            {experiences.map((exp, index) => {
-              const expRef = useRef(null);
-              const expInView = useInView(expRef, { once: true, margin: "-50px" });
-
-              return (
-                <motion.div
-                  key={index}
-                  ref={expRef}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={expInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative"
-                >
-                  <div className="absolute left-6 md:left-8 top-2 w-4 h-4 rounded-full bg-epfl-white border-4 border-epfl-red/50 group-hover:border-epfl-red group-hover:scale-125 transition-all z-10 hidden md:block" />
-
-                  <div
-                    className={`ml-0 md:ml-16 p-6 md:p-8 rounded-2xl border-2 transition-all duration-300 ${
-                      exp.highlight
-                        ? "bg-gradient-to-br from-epfl-red/10 via-epfl-pink/5 to-epfl-red/10 border-epfl-red/30 hover:border-epfl-red/60"
-                        : "bg-epfl-white border-epfl-red/20 hover:border-epfl-red/50"
-                    } hover:shadow-xl`}
-                  >
-                    {exp.highlight && (
-                      <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1 rounded-full bg-epfl-red/20 border border-epfl-red/30">
-                        <Award className="w-3 h-3 text-epfl-red" />
-                        <span className="text-xs font-semibold text-epfl-red">Achievement</span>
-                      </div>
-                    )}
-
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div className="flex items-start gap-4 flex-1">
-                        <div className={`p-3 rounded-xl shrink-0 ${exp.highlight ? "bg-epfl-red/20 text-epfl-red" : "bg-epfl-pink/20 text-epfl-pink"}`}>
-                          <Building2 className="w-6 h-6" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-epfl-dark hover:text-epfl-red transition-colors mb-1">
-                            {exp.title}
-                          </h3>
-                          <p className="text-epfl-red font-semibold">{exp.company}</p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col text-sm text-epfl-dark/60 md:text-right shrink-0 gap-1">
-                        <span className="flex items-center gap-1.5 md:justify-end">
-                          <Calendar className="w-4 h-4" />
-                          {exp.period}
-                        </span>
-                        <span className="flex items-center gap-1.5 md:justify-end">
-                          <MapPin className="w-4 h-4" />
-                          {exp.location}
-                        </span>
-                      </div>
-                    </div>
-
-                    <ul className="space-y-2 mb-6 ml-16 md:ml-0">
-                      {exp.description.map((item, i) => (
-                        <li key={i} className="text-epfl-dark/70 flex items-start gap-3 leading-relaxed">
-                          <span className="text-epfl-red mt-1 shrink-0 font-bold">{">"}</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="flex flex-wrap gap-2 ml-16 md:ml-0">
-                      {exp.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className={`text-xs font-medium px-3 py-1.5 rounded-full border ${
-                            exp.highlight
-                              ? "text-epfl-red bg-epfl-red/10 border-epfl-red/30"
-                              : "text-epfl-pink bg-epfl-pink/10 border-epfl-pink/30"
-                          }`}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+            {experiences.map((exp, index) => (
+              <ExperienceCard key={exp.company + exp.title} exp={exp} index={index} />
+            ))}
           </div>
         </div>
       </div>

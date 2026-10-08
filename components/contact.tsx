@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Download } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
@@ -75,6 +75,7 @@ export default function Contact() {
           >
             <a
               href="https://github.com/imaneoujja"
+              aria-label="GitHub"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-4 rounded-full border-2 border-epfl-red/30 hover:border-epfl-red hover:bg-epfl-red/10 transition-all duration-300 hover:scale-110 hover:rotate-6"
@@ -83,6 +84,7 @@ export default function Contact() {
             </a>
             <a
               href="https://www.linkedin.com/in/imane-oujja-65165011a/"
+              aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-4 rounded-full border-2 border-epfl-red/30 hover:border-epfl-red hover:bg-epfl-red/10 transition-all duration-300 hover:scale-110 hover:-rotate-6"
@@ -94,6 +96,23 @@ export default function Contact() {
               className="group p-4 rounded-full border-2 border-epfl-red/30 hover:border-epfl-red hover:bg-epfl-red/10 transition-all duration-300 hover:scale-110 hover:rotate-6"
             >
               <Mail className="w-6 h-6 text-epfl-red group-hover:scale-110 transition-transform" />
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="mt-10 flex justify-center"
+          >
+            <a
+              href="/Imane_Oujja_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 rounded-full bg-gradient-epfl text-epfl-white font-semibold text-lg hover:scale-105 transition-transform shadow-lg hover:shadow-xl"
+            >
+              Download CV
+              <Download className="inline-block ml-2 w-5 h-5" />
             </a>
           </motion.div>
         </motion.div>
