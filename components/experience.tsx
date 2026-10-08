@@ -69,6 +69,8 @@ const experiences: Experience[] = [
   {
     title: "Software Developer",
     company: "HumanEd",
+    logo: "/logos/humaned.png",
+    logoFit: "contain",
     location: "Edinburgh, United Kingdom",
     period: "Sept 2024 - April 2025",
     description: [

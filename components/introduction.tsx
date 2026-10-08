@@ -4,13 +4,6 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const highlights = [
-  { value: "60%", label: "less manual processing with my agentic workflow at JPMorgan" },
-  { value: "1st", label: "place at the Artefact x Groupe Mutuel Women in AI Hackathon" },
-  { value: "90.2%", label: "accuracy on 2.5M-tweet sentiment classification" },
-  { value: "15+", label: "students mentored weekly as an EPFL TA" },
-];
-
 export default function Introduction() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -63,23 +56,6 @@ export default function Introduction() {
             <span className="text-epfl-red font-semibold">EPFelles</span> to pitching AI products that close the
             gap between university and tech careers.
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {highlights.map((h) => (
-            <div
-              key={h.label}
-              className="rounded-2xl p-5 bg-gradient-to-br from-epfl-red/10 via-epfl-pink/5 to-epfl-red/10 border border-epfl-red/20 hover:border-epfl-red/50 hover:-translate-y-1 transition-all duration-300"
-            >
-              <p className="text-3xl md:text-4xl font-bold text-gradient mb-1">{h.value}</p>
-              <p className="text-sm text-epfl-dark/70 leading-snug">{h.label}</p>
-            </div>
-          ))}
         </motion.div>
       </div>
     </section>
