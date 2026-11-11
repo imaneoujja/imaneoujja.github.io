@@ -19,6 +19,18 @@ const projects: {
   status?: string;
 }[] = [
   {
+    title: "COMEBACK",
+    subtitle: "Microsoft × Premier League Hackathon · AI Match Insights",
+    description:
+      "Built an attention-aware match insights engine with Microsoft Agent Framework and Foundry: it watches the match when fans step away, calls them back when it starts to matter, and catches them up when they return. Its alerts announce 54% of goals ahead of time (1.6× better than random, median 60 s warning), a Verifier agent fact-checks every text fans see (5.0/5 groundedness), and one shared engine serves 200,000 fans with ~1,800 LLM calls.",
+    tags: ["Python", "Multi-Agent Systems", "Microsoft Agent Framework", "Azure", "LLMs", "Sports Analytics"],
+    github: "https://github.com/imaneoujja/comeback",
+    live: "https://comeback.lemonforest-f9ddbdf8.switzerlandnorth.azurecontainerapps.io",
+    image: "/projects/comeback.jpg",
+    highlight: true,
+    featured: true,
+  },
+  {
     title: "What Makes America Laugh?",
     subtitle: "Large-Scale Humor Analysis",
     description:
